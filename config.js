@@ -1,7 +1,7 @@
 module.exports = {
-    FB_PAGE_TOKEN: '',
-    FB_VERIFY_TOKEN: '',
-    API_AI_CLIENT_ACCESS_TOKEN: '',
-    FB_APP_SECRET: '',
-    SERVER_URL: "",
+    FB_PAGE_TOKEN: 'EAAFCGeBPJwsBAF4fUYOZAx98mZCTr3ylbcdj0HyCZAj3i73ZAqdH9QwAaCPCQ4IwgPZCPTKo20IlmmSqrRaYZChDCgxmdZAkrqZAZCmZAU6SM1NCxICcQx4MdFZCFmNISgyUXBWMPVDLYG3X65UnxdmwTNamTToa2lOgUqQZA3rzqk3PWQZDZD',
+    FB_VERIFY_TOKEN: 'my_chat_bot',
+    API_AI_CLIENT_ACCESS_TOKEN: 'a21af6fc7cbf48e38bf9b94a93054daa',
+    FB_APP_SECRET: '04c0167c272cdb0a835fea6f6a26c939',
+    SERVER_URL: "https://chatbot-facebooks.herokuapp.com/",
 };
