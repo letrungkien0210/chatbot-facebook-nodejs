@@ -208,11 +208,6 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 					title:"Track my order"
 				},
 				{
-					type:"phone_number",
-					title:"Call us",
-					payload:"+084987143914"
-				},
-				{
 					type:"postback",
 					title:"Keep on Chatting",
 					payload:"CHAT"
