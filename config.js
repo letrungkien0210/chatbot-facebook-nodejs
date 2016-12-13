@@ -4,4 +4,7 @@ module.exports = {
     API_AI_CLIENT_ACCESS_TOKEN: 'a21af6fc7cbf48e38bf9b94a93054daa',
     FB_APP_SECRET: '04c0167c272cdb0a835fea6f6a26c939',
     SERVER_URL: "https://chatbot-facebooks.herokuapp.com/",
+    SENDGRID_API_KEY: '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',
+    EMAIL_FROM: 'letrungkien0210@gmail.com',
+    EMAIL_TO: 'letrungkien0210@outlook.com'
 };
