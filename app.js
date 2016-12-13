@@ -195,6 +195,32 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
+		case "faq-delivery":
+			sendTextMessage(sender, responseText);
+			sendTypingOn(sender);
+
+			//ask what user wants to do next
+			setTimeout(function(){
+				//get code from here: https://developers.facebook.com/docs/messenger-platform/send-api-reference/button-template
+				var buttons = [{
+					type:"web_url",
+					url:"https://www.myapple.com/track_order",
+					title:"Track my order"
+				},
+				{
+					type:"phone_number",
+					title:"Call us",
+					payload:"+02121212"
+				},
+				{
+					type:"postback",
+					title:"Keep on Chatting",
+					payload:"CHAT"
+				}];
+				
+				sendButtonMessage(sender, "What would you like to do next?", buttons);
+			}, 3000);
+			break;
 		case "detailed-application":
 			if( isDefined(contexts[0]) && contexts[0].name === 'job_application' && contexts[0].parameters){
 				let phone_number = (isDefined(contexts[0].parameters['phone-numb']) && contexts[0].parameters['phone-numb']!='') ? contexts[0].parameters['phone-numb'] : '';
