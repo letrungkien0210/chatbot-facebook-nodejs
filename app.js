@@ -217,7 +217,7 @@ function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 					title:"Keep on Chatting",
 					payload:"CHAT"
 				}];
-				
+
 				sendButtonMessage(sender, "What would you like to do next?", buttons);
 			}, 3000);
 			break;
@@ -824,6 +824,10 @@ function receivedPostback(event) {
 	var payload = event.postback.payload;
 
 	switch (payload) {
+		case 'CHAT':
+			//user want to chat
+			sendTextMessage(senderID, "I love chatting too. Do you have any other questions for me?");
+			break;
 		default:
 			//unindentified payload
 			sendTextMessage(senderID, "I'm not sure what you want. Can you be more specific?");
