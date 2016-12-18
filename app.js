@@ -35,6 +35,9 @@ if (!config.EMAIL_FROM) { //used for sending email
 if (!config.EMAIL_TO) { //used for sending email
 	throw new Error('missing EMAIL_TO');
 }
+if (!config.WEATHER_API_KEY) { //weather api key
+	throw new Error('missing WEATHER_API_KEY');
+}
 
 
 
@@ -195,6 +198,34 @@ function handleEcho(messageId, appId, metadata) {
 
 function handleApiAiAction(sender, action, responseText, contexts, parameters) {
 	switch (action) {
+		case "get-current-weather":
+			if ( parameters.hasOwnProperty("geo-city") && parameters["geo-city"]!='' ){
+				var request = require('request');
+
+				request({
+					url:'http://api.openweathermap.org/data/2.5/weather',
+					qs: {
+						appid: config.WEATHER_API_KEY,
+						q: parameters["geo-city"]
+					},
+				}, function(error, response, body){
+					if(!error && response.statusCode == 200){
+						let weather = JSON.parse(body);
+						if(weather.hasOwnProperty("weather")){
+							let reply = `${responseText} ${weather["weather"][0]["description"]}`;
+							sendTextMessage(sender, reply);
+						} else {
+							sendTextMessage(sender, `No weather forecast available for ${parameters["geo-city"]}`);
+						}
+
+					}else{
+						console.error(response.error);
+					}
+				});
+			}else{
+				sendTextMessage(sender, responseText);
+			}
+			break;
 		case "faq-delivery":
 			sendTextMessage(sender, responseText);
 			sendTypingOn(sender);

@@ -6,5 +6,6 @@ module.exports = {
     SERVER_URL: "https://chatbot-facebooks.herokuapp.com/",
     SENDGRID_API_KEY: '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',
     EMAIL_FROM: 'letrungkien0210@gmail.com',
-    EMAIL_TO: 'letrungkien0210@outlook.com'
+    EMAIL_TO: 'letrungkien0210@outlook.com',
+    WEATHER_API_KEY: '26f0d68dd1929f8b25c8b699d83ef830'
 };
